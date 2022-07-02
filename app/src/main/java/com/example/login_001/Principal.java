@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class Principal extends AppCompatActivity {
 
     Button reali_test, mis_test;
+    TextView bienvenido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +26,19 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         reali_test=(Button) findViewById(R.id.btnrealizartest);
         mis_test=(Button) findViewById(R.id.btnRevisarTest);
+        String valor= getIntent().getStringExtra("nombre");
 
-       // mis_test.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-           // public void onClick(View v) {
-             //   Intent intent = new Intent (v.getContext(), Mis_Test.class);
-               // startActivity(intent);
-            //}
-        //});
+        bienvenido=(TextView) findViewById(R.id.bn);
+        bienvenido.setText("Bienvenido "+valor);
 
 
 
     }
 
     public void Mis_Test(View view){
+        String valor= getIntent().getStringExtra("nombre");
         Intent m_test=new Intent(this,Mis_Test.class);
+        m_test.putExtra("nombre", valor);
         startActivity(m_test);
     }
     public void Realizar_test(View view){

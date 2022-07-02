@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E3EDF7"
     tools:context=".MainActivity">
 
     <TextView
@@ -44,12 +45,15 @@
         android:id="@+id/btningresar"
         android:layout_width="150dp"
         android:layout_height="69dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#F0F0F3"
         android:text="Ingresar"
+        android:textColor="#7878AB"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frmpass" />
+        app:layout_constraintTop_toBottomOf="@+id/pregunta" />
 
     <TextView
         android:id="@+id/textView"
@@ -72,5 +76,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/psicofastlogoround" />
+
+    <TextView
+        android:id="@+id/pregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="¿Olvido su clave?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frmpass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

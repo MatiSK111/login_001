@@ -6,6 +6,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 //import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -26,7 +27,7 @@ public class Mis_Test extends AppCompatActivity {
     RequestQueue datos;
 
     public void onCreate(Bundle icicle) {
-        getSupportActionBar().hide();
+        getSupportActionBar().setTitle("Mis test");
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(icicle);
@@ -40,7 +41,8 @@ public class Mis_Test extends AppCompatActivity {
     private void CargaLista()
     {
         ArrayList<String> listausu=new ArrayList<String>();
-        String url="http://192.168.1.87/Sycofast/consulta.php";
+        String valor= getIntent().getStringExtra("nombre");
+        String url="https://psicofast.space/Sycofast/consulta.php?nombre="+valor;
         StringRequest request=new StringRequest(Request.Method.GET, url,new Response.Listener<String>()
         {
             @Override
@@ -49,9 +51,8 @@ public class Mis_Test extends AppCompatActivity {
                 try{
                     JSONArray json = new JSONArray(response);
                     for (int i = 0; i < json.length(); i++) {
-
                         JSONObject registro= json.getJSONObject(i);
-                      listausu.add( registro.getString("idregistro")+"   "+registro.getString("fecha")+"   "+registro.getString("Resultado")+"   "+registro.getString("puntaje"));
+                      listausu.add(registro.getString("fecha")+"   "+registro.getString("Resultado")+"   "+registro.getString("puntaje"));
                     }
 
                 }catch(Exception e){

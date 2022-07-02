@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.366" />
+        <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/drawable/ic_launcher_background.xml" value="0.366" />
+        <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/drawable/psico_background.xml" value="0.366" />
+        <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/layout/activity_clave.xml" value="0.25" />
         <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/layout/activity_mis_test.xml" value="0.33" />
         <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/layout/activity_principal.xml" value="0.33" />
-        <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/layout/activity_realizar_test.xml" value="0.33" />
+        <entry key="..\:/Users/matia/AndroidStudioProjects/login_001/app/src/main/res/layout/activity_realizar_test.xml" value="0.67" />
       </map>
     </option>
   </component>

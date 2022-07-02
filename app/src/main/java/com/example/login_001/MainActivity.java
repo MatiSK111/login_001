@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     EditText password;
     Button ingresar;
     RequestQueue datos;
+    TextView qu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         password= (EditText) findViewById(R.id.frmpass);
         ingresar=(Button) findViewById(R.id.btningresar);
         datos= Volley.newRequestQueue(this);
+        qu= (TextView) findViewById(R.id.pregunta);
 
 
 
@@ -50,6 +52,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 consultardatos(usuario.getText().toString(),password.getText().toString());
+
+            }
+        });
+
+        qu.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+                Intent vent=new Intent(MainActivity.this,Clave.class);
+                startActivity(vent);
+
             }
         });
     }
@@ -57,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void consultardatos(String usu, String pass)
     {
-        String url="http://192.168.1.87/Sycofast/consultardatos.php?usu="+usu+"&pass="+pass;
+        String url="https://psicofast.space/Sycofast/consultardatos.php?usu="+usu+"&pass="+pass;
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
                 {
                     @Override
@@ -70,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this,"Usuario no Existe",Toast.LENGTH_LONG).show();
                             }else{
                                 Intent ventana=new Intent(MainActivity.this,Principal.class);
-                                Toast.makeText(MainActivity.this,"Usuario si Existe",Toast.LENGTH_LONG).show();
+                                ventana.putExtra("nombre", usu);
                                 startActivity(ventana);
                             }
                         }catch(JSONException e){

@@ -5,13 +5,14 @@
     android:id="@+id/lol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E3EDF7"
     tools:context=".Mis_Test">
 
     <ListView
         android:id="@+id/ListadoUsuario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="36dp"
         android:divider="@color/material_blue_grey_800"
         android:dividerHeight="1dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,8 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="18sp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="45dp" />
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="25dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,12 +9,15 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/psico"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/psico_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login_001"
         tools:targetApi="31">
+        <activity
+            android:name=".Clave"
+            android:exported="false" />
         <activity
             android:name=".Realizar_Test"
             android:exported="false" />
