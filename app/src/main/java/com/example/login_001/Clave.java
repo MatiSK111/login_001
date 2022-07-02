@@ -55,8 +55,16 @@ public class Clave extends AppCompatActivity {
             public void onResponse(JSONObject response)
             {
                 try{
-                    response.getString("mail");
-                    Toast.makeText(Clave.this,corr,Toast.LENGTH_LONG).show();
+
+                    String estado=response.getString("estado");
+                    if(estado.equals("1"))
+                    {
+                        Toast.makeText(Clave.this,"Revise su correo electronico",Toast.LENGTH_LONG).show();
+                    }if(estado.equals("2")){
+                        Toast.makeText(Clave.this,"Correo NO enviado = 2",Toast.LENGTH_LONG).show();
+                    }if(estado.equals("3")){
+                        Toast.makeText(Clave.this,"Correo NO enviado = 3",Toast.LENGTH_LONG).show();
+                    }
                 }catch(JSONException e){
                     e.printStackTrace();
                 }
