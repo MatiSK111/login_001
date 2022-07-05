@@ -43,7 +43,7 @@ public class Realizar_Test extends AppCompatActivity {
     private String[]months=new String[]{"Test completados", "Test por realizar"};
     RequestQueue datos;
     // se deberia llenar conlos datos de estadso de la base de datos, peroo no funciona se cae...
-    private int[] colors = new int[]{Color.BLUE,Color.RED};
+    private int[] colors = new int[]{Color.rgb(26, 188, 156),Color.rgb(136, 78, 160)};
 
     //ArrayList<Integer> sale=new ArrayList<Integer>();
 
@@ -89,7 +89,7 @@ public class Realizar_Test extends AppCompatActivity {
 
     public void createCharts(int valor, int valor2){
 
-        pieChart=(PieChart) getSameChart(pieChart, " ", Color.GRAY,Color.WHITE, 3000);
+        pieChart=(PieChart) getSameChart(pieChart, " ", Color.GRAY,Color.rgb(227, 237, 247), 3000);
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
         pieChart.setData(getPieData(valor, valor2));
@@ -100,12 +100,12 @@ public class Realizar_Test extends AppCompatActivity {
     private DataSet getData(DataSet dataSet){
         dataSet.setColors(colors);
         dataSet.setValueTextColor(Color.BLACK);
-        dataSet.setValueTextSize(20);
+        dataSet.setValueTextSize(24);
         return dataSet;
     }
 
     private PieData getPieData(int valor, int valor2){
-        PieDataSet pieDataSet=(PieDataSet) getData(new PieDataSet(getPieEntries(new int[]{valor,valor2}),""));
+        PieDataSet pieDataSet=(PieDataSet) getData(new PieDataSet(getPieEntries(new int[]{valor,valor2}),"Verde: Test completados - Morado: Test por realizar"));
         pieDataSet.setSliceSpace(3);
         pieDataSet.setValueFormatter(new PercentFormatter());
         return new PieData(pieDataSet);

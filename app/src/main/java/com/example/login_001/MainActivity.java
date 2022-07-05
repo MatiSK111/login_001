@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
                                 Intent ventana=new Intent(MainActivity.this,Principal.class);
                                 ventana.putExtra("nombre", usu);
                                 startActivity(ventana);
+                                 MainActivity.this.finish();
+                                Toast.makeText(MainActivity.this,"Inicio sesion correctamente",Toast.LENGTH_LONG).show();
                             }
                         }catch(JSONException e){
                             e.printStackTrace();
