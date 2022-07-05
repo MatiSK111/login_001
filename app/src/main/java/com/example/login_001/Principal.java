@@ -42,7 +42,9 @@ public class Principal extends AppCompatActivity {
         startActivity(m_test);
     }
     public void Realizar_test(View view){
+        String valor= getIntent().getStringExtra("nombre");
         Intent m_test=new Intent(this,Realizar_Test.class);
+        m_test.putExtra("nombre", valor);
         startActivity(m_test);
     }
 }
