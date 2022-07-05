@@ -48,6 +48,7 @@ public class Realizar_Test extends AppCompatActivity {
     //ArrayList<Integer> sale=new ArrayList<Integer>();
 
     public String n1 ;
+    public String n2 ;
     //int n2=0;
 
     @Override
@@ -57,8 +58,8 @@ public class Realizar_Test extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_realizar_test);
-        //pieChart=(PieChart) findViewById(R.id.pieChart);
-        //createCharts();
+        pieChart=(PieChart) findViewById(R.id.pieChart);
+
         datos= Volley.newRequestQueue(this);
        // sale();
         //int lol = Integer.parseInt(n1);
@@ -76,22 +77,22 @@ public class Realizar_Test extends AppCompatActivity {
         return chart;
     }
 
-    private ArrayList<PieEntry>getPieEntries(){
+    private ArrayList<PieEntry>getPieEntries(int[] sale){
         //sale();
-        lln1();
-        int[] sale = new int[]{Integer.parseInt(n1),30};
+        //lln1();
+
         ArrayList<PieEntry> entries= new ArrayList<>();
         for(int i =0; i<sale.length; i++)
             entries.add(new PieEntry(sale[i]));
         return entries;
     }
 
-    public void createCharts(){
+    public void createCharts(int valor, int valor2){
 
         pieChart=(PieChart) getSameChart(pieChart, " ", Color.GRAY,Color.WHITE, 3000);
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
-        pieChart.setData(getPieData());
+        pieChart.setData(getPieData(valor, valor2));
         pieChart.invalidate();
         pieChart.setDrawHoleEnabled(false);
     }
@@ -103,8 +104,8 @@ public class Realizar_Test extends AppCompatActivity {
         return dataSet;
     }
 
-    private PieData getPieData(){
-        PieDataSet pieDataSet=(PieDataSet) getData(new PieDataSet(getPieEntries(),""));
+    private PieData getPieData(int valor, int valor2){
+        PieDataSet pieDataSet=(PieDataSet) getData(new PieDataSet(getPieEntries(new int[]{valor,valor2}),""));
         pieDataSet.setSliceSpace(3);
         pieDataSet.setValueFormatter(new PercentFormatter());
         return new PieData(pieDataSet);
@@ -166,13 +167,18 @@ public class Realizar_Test extends AppCompatActivity {
                 try{
 
                      n1=response.getString("estado");
+
                     //Toast.makeText(Realizar_Test.this,n1,Toast.LENGTH_LONG).show();
                     //int lol = Integer.valueOf(n1);
                     //Toast.makeText(Realizar_Test.this,lol,Toast.LENGTH_LONG).show();
+                    //int[] sale = new int[]{Integer.parseInt(n1),30};
+                    //createCharts(Integer.parseInt(n1));
+                    lln2(Integer.parseInt(n1));
 
                 }catch(JSONException e){
                     e.printStackTrace();
                 }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -182,6 +188,39 @@ public class Realizar_Test extends AppCompatActivity {
         });
         datos.add(request);
         return n1;
+    }
+    public String lln2(int nn){
+        String valor= getIntent().getStringExtra("nombre");
+        String n3 = "";
+        String url="https://psicofast.space/Sycofast/androidDatos2.php?nombre="+valor;
+        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
+        {
+            @Override
+            public void onResponse(JSONObject response)
+            {
+                try{
+
+                    n2=response.getString("estado");
+
+                    //Toast.makeText(Realizar_Test.this,n1,Toast.LENGTH_LONG).show();
+                    //int lol = Integer.valueOf(n1);
+                    //Toast.makeText(Realizar_Test.this,lol,Toast.LENGTH_LONG).show();
+                    //int[] sale = new int[]{Integer.parseInt(n1),30};
+                    createCharts(nn, Integer.parseInt(n2));
+
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        datos.add(request);
+        return n2;
     }
 
 
