@@ -52,7 +52,22 @@ public class Mis_Test extends AppCompatActivity {
                     JSONArray json = new JSONArray(response);
                     for (int i = 0; i < json.length(); i++) {
                         JSONObject registro= json.getJSONObject(i);
-                      listausu.add(registro.getString("fecha")+"   "+registro.getString("Resultado")+"   "+registro.getString("puntaje"));
+                        String estado=registro.getString("estado");
+                        String Completado;
+                        if(estado.equals("2")){
+                          Completado="Completado";
+                        }else{
+                            Completado="No completado";
+                        }
+                        String tes=registro.getString("Test_idtest");
+                        String tess;
+                        if(estado.equals("2")){
+                            tess="Test de Beck";
+                        }else{
+                            tess="Test de prueba";
+                        }
+                        listausu.add("             "+registro.getString("fecha")+"  "+tess+"  "+Completado);
+
                     }
 
                 }catch(Exception e){
